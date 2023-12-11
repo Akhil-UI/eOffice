@@ -1,0 +1,154 @@
+
+
+<section class="ejob-section" >
+	<ng-scrollbar class="w-100 h-100">
+
+    <div class="row justify-content-center">
+    <div class="col-md-8">
+          <form class="row g-3 datasearch justify-content-center" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+            <div class="col-md-6 ">
+              <label class="mb-1">Folder </label>
+              <select class="form-select" formControlName="userId"
+              [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+                <option>Choose Your Option</option>
+                <option>Folder 1</option>
+                <option>Folder 2</option>
+                <option>Folder 3</option>
+                <option>Folder 4</option>
+              </select>
+              <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+              <div *ngIf="f['userId'].errors['required']">
+                Folder is required
+              </div>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="mb-1">Permission Type </label>
+            <select class="form-select" formControlName="userId"
+            [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+              <option>Choose Your Option</option>
+              <option>Folder 1</option>
+              <option>Folder 2</option>
+              <option>Folder 3</option>
+              <option>Folder 4</option>
+            </select>
+            <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+            <div *ngIf="f['userId'].errors['required']">
+              Folder is required
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="mb-1">User  </label>
+            <select class="form-select" formControlName="userId"
+            [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+              <option>Choose Your Option</option>
+              <option>Folder 1</option>
+              <option>Folder 2</option>
+              <option>Folder 3</option>
+              <option>Folder 4</option>
+            </select>
+            <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+            <div *ngIf="f['userId'].errors['required']">
+              Folder is required
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="mb-1">Top Org Unit  </label>
+          <select class="form-select" formControlName="userId"
+          [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+            <option>Choose Your Option</option>
+            <option>Folder 1</option>
+            <option>Folder 2</option>
+            <option>Folder 3</option>
+            <option>Folder 4</option>
+          </select>
+          <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+          <div *ngIf="f['userId'].errors['required']">
+            Folder is required
+          </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="mb-1">Org Unit  </label>
+          <select class="form-select" formControlName="userId"
+          [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+            <option>Choose Your Option</option>
+            <option>Folder 1</option>
+            <option>Folder 2</option>
+            <option>Folder 3</option>
+            <option>Folder 4</option>
+          </select>
+          <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+          <div *ngIf="f['userId'].errors['required']">
+            Folder is required
+          </div>
+          </div>
+        </div>
+     
+    
+          <div class="row btn-row justify-content-center">
+            <div class="col-md-5 d-flex justify-content-around">
+              <button type="submit" class="btn btn-width btn-submit">Submit</button>
+              <button type="button" class="btn btn-width btn-danger" (click)="onReset()">Reset</button>
+            </div>
+          </div>
+       
+           
+
+          </form>
+        </div>
+        </div>
+        
+  
+          <hr class="gradient-line">
+
+    <div class="row m-0 p-0 data">
+      <div class=" table-result p-0 ">
+          <ng-scrollbar class="table-height" style="height: 59vh;">
+          <ngx-table [configuration]="configuration" [data]="data" [columns]="columns" > 
+              <ng-template let-row let-index="index">
+  
+                <td>
+                  <span class="">{{ row.sno }}</span>
+                </td>
+                <td>
+                  <div class="">{{ row.actionName }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.actionNameAr }}</div>
+                </td>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="row.status === 'true'">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ row.status === 'true' ? 'Active' : 'In Active' }}</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="">{{ row.createdBy }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.updatedON }}</div>
+                </td>
+              </ng-template>
+            </ngx-table>
+              
+            </ng-scrollbar>
+       
+    
+      </div>
+    </div>
+    
+
+
+    </ng-scrollbar>
+</section>
+  
+
+  <!-- <app-table></app-table> -->

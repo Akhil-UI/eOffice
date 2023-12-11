@@ -1,0 +1,52 @@
+
+
+$btn-modal: #5ABA8A;
+
+@mixin button-modalbase($color) {
+  background-color: $color;
+  color: #ffffff;
+  outline: none;
+  border-radius: 0.15rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  
+}
+
+@mixin button-hover($color) {
+  &:hover {
+    background-color: darken($color, 10%);
+  }
+}
+
+@mixin button-active($color) {
+  &:active {
+    background-color: darken($color, 10%);
+  }
+}
+
+@mixin button-disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+@mixin disabled{
+  &:disabled{
+    @include button-disabled;
+  }
+}
+
+
+.btn-modal {
+  @include button-modalbase($btn-modal);
+  @include button-hover($btn-modal);
+  @include button-active($btn-modal);
+
+  @include disabled
+}
+
+
+.modal-title{
+  font-size: 1.4rem;
+  text-align: center;
+  text-transform: uppercase;
+}

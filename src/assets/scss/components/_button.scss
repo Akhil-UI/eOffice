@@ -1,0 +1,154 @@
+/* Buttons */
+$btn-submit: #5ABA8A;
+$btn-save: #27A243;
+$btn-update:#FEB300;
+$btn-danger: #FF6A6A;
+$btn-edit: #95ceff;
+
+$btn-success: #2cd07e;
+$btn-danger: #ff5050;
+$btn-warning: #ffc36d;
+$btn-info: #2cabe3;
+
+@mixin button-base($color) {
+  background-color: $color;
+  color: #ffffff;
+  outline: none;
+  border-radius: 0.15rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 0.6rem 0.9rem;
+  border: none;
+ 
+}
+
+@mixin button-hover($color) {
+  &:hover {
+    background-color: darken($color, 10%);
+  }
+}
+
+@mixin button-active($color) {
+  &:active {
+    background-color: darken($color, 10%);
+  }
+}
+
+@mixin button-disabled {
+  opacity: 0.65;
+  pointer-events: none;
+}
+
+@mixin disabled{
+  &:disabled{
+    @include button-disabled;
+  }
+}
+
+.btn-submit {
+  @include button-base($btn-submit);
+  @include button-hover($btn-submit);
+  @include button-active($btn-submit);
+
+  @include disabled
+}
+
+.btn-save {
+  @include button-base($btn-save);
+  @include button-hover($btn-save);
+  @include button-active($btn-save);
+
+  @include disabled
+
+}
+
+.btn-update {
+  @include button-base($btn-update);
+  @include button-hover($btn-update);
+  @include button-active($btn-update);
+  
+  @include disabled
+}
+
+.btn-reset {
+  @include button-base($btn-danger);
+  @include button-hover($btn-danger);
+  @include button-active($btn-danger);
+  
+  @include disabled
+}
+
+.btn-edit {
+  @include button-base($btn-edit);
+  @include button-hover($btn-edit);
+  @include button-active($btn-edit);
+
+  @include disabled
+}
+
+
+.btn-success {
+  @include button-base($btn-success);
+  @include button-hover($btn-success);
+  @include button-active($btn-success);
+
+  @include disabled
+}
+
+.btn-danger {
+  @include button-base($btn-danger);
+  @include button-hover($btn-danger);
+  @include button-active($btn-danger);
+
+  @include disabled
+}
+
+.btn-warning {
+  @include button-base($btn-warning);
+  @include button-hover($btn-warning);
+  @include button-active($btn-warning);
+
+  @include disabled
+}
+
+.btn-info {
+  @include button-base($btn-info);
+  @include button-hover($btn-info);
+  @include button-active($btn-info);
+
+  @include disabled
+}
+
+
+
+
+
+.btn{
+  
+
+}
+.btn-width{
+  padding: 0.6rem 2rem;
+  min-width: 145px;
+  font-size: 1rem;
+}
+.table-btn{
+  padding: 0.6rem 1rem;
+  min-width: 80px;
+  font-size: 0.8rem;
+
+}
+
+.ngb-dp-arrow{
+  .btn-date{
+    min-width: 100%;
+  }
+}
+
+
+
+
+.btn-row{
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}

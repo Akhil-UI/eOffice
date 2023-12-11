@@ -1,0 +1,202 @@
+
+
+<section class="ejob-section" >
+	<ng-scrollbar class="w-100 h-100">
+
+    <div class="row justify-content-center">
+    <div class="col-md-8">
+          <form class="row g-3 datasearch " [formGroup]="form" (ngSubmit)="onSubmit()">
+
+          
+          <div class="col-md-6 ">
+              <label class="mb-1">User </label>
+              <select class="form-select" formControlName="userId"
+              [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+                <option>Choose Your Option</option>
+                <option>User 1</option>
+                <option>User 2</option>
+                <option>User 3</option>
+                <option>User 4</option>
+              </select>
+              <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+              <div *ngIf="f['userId'].errors['required']">
+                Select the User is required
+              </div>
+              </div>
+          </div>
+
+          <div class="col-md-6 ">
+            <label class="mb-1">Top Org Unit </label>
+            <select class="form-select" formControlName="userId"
+            [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+              <option>Choose Your Option</option>
+              <option>Top Org Unit 1</option>
+              <option>Top Org Unit 2</option>
+              <option>Top Org Unit 3</option>
+              <option>Top Org Unit 4</option>
+            </select>
+            <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+            <div *ngIf="f['userId'].errors['required']">
+              Top Org Unit is required
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 ">
+            <label class="mb-1">Org Unit</label>
+            <select class="form-select" formControlName="userId"
+            [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+              <option>Choose Your Option</option>
+              <option>Org Unit 1</option>
+              <option>Org Unit 2</option>
+              <option>Org Unit 3</option>
+              <option>Org Unit 4</option>
+            </select>
+            <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+            <div *ngIf="f['userId'].errors['required']">
+              Org Unit is required
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 ">
+            <label class="mb-1">Role</label>
+            <select class="form-select" formControlName="userId"
+            [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+              <option>Choose Your Option</option>
+              <option>Role 1</option>
+              <option>Role 2</option>
+              <option>Role 3</option>
+              <option>Role 4</option>
+            </select>
+            <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+            <div *ngIf="f['userId'].errors['required']">
+              Role is required
+            </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 ">
+            <label class="mb-1">Superior</label>
+            <select class="form-select" formControlName="userId"
+            [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }">
+              <option>Choose Your Option</option>
+              <option>Superior 1</option>
+              <option>Superior 2</option>
+              <option>Superior 3</option>
+              <option>Superior 4</option>
+            </select>
+            <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+            <div *ngIf="f['userId'].errors['required']">
+              Superior is required
+            </div>
+            </div>
+          </div>
+      
+          <div class="col-md-6">
+              <label class="mb-1">User Assignment Permission</label>
+              <input
+              type="text"
+              formControlName="displayName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['displayName'].errors }"
+              />
+              <div *ngIf="submitted && f['displayName'].errors" class="invalid-feedback">
+              <div *ngIf="f['displayName'].errors['required']">
+                User Assignment Permission is required
+              </div>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="mb-1">User Privileges</label>
+            <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
+            />
+            <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+            <div *ngIf="f['firstName'].errors['required']">
+              First Name is required
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="mb-1">User Actions</label>
+          <input
+          type="text"
+          formControlName="lastName"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }"
+          />
+          <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+          <div *ngIf="f['lastName'].errors['required']">
+            Last Name is required
+          </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="row btn-row justify-content-center">
+          <div class="d-flex justify-content-center">
+            <button type="submit" class="btn btn-submit mx-2">Submit</button>
+            <!-- <button type="button" class="btn btn-update">Update</button> -->
+            <button type="button" class="btn btn-danger mx-2" (click)="onReset()">Reset</button>
+          </div>
+        </div>
+       
+           
+
+          </form>
+        </div>
+        </div>
+  
+          <hr class="gradient-line">
+
+    <div class="row m-0 p-0 data">
+      <div class=" table-result p-0 ">
+          <ng-scrollbar class="table-height" style="height: 59vh;">
+          <ngx-table class="w-100" [configuration]="configuration" [data]="data" [columns]="columns" > 
+              <ng-template let-row let-index="index">
+  
+                <td>
+                  <span class="">{{ row.sno }}</span>
+                </td>
+                <td>
+                  <div class="">{{ row.actionName }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.actionNameAr }}</div>
+                </td>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="row.status === 'true'">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ row.status === 'true' ? 'Active' : 'In Active' }}</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="">{{ row.createdBy }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.updatedON }}</div>
+                </td>
+              </ng-template>
+            </ngx-table>
+              
+            </ng-scrollbar>
+       
+    
+      </div>
+    </div>
+    
+
+
+    </ng-scrollbar>
+</section>
+  
+
+  <!-- <app-table></app-table> -->

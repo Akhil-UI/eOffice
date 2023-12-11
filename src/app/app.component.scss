@@ -1,0 +1,18 @@
+:host {
+    ::ng-deep {
+      ng-scrollbar.virtual-scroll {
+        --scrollbar-size: 8px;
+        --scrollbar-thumb-color: gray;
+        --scrollbar-hover-size: 12px;
+        --scrollbar-track-color: rgba(0, 0, 0, 0.05);
+        --scrollbar-border-radius: 10px;
+    
+        margin: 1em;
+        height: 200px;
+        max-height: 200px;
+        border-radius: 6px;
+        border: 1px solid gray;
+        overflow: hidden;
+      }
+    }
+  }

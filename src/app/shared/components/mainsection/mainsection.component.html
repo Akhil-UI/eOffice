@@ -1,0 +1,345 @@
+
+
+        <app-stats></app-stats>
+
+    <div class="row m-0 p-0">
+        <nav class="nav quick-links">
+            <ul class="d-flex flex-row align-items-center">
+                <li class="nav-item d-flex align-items-center ">
+                    <a class="nav-link btn-link" routerLink="/scanjob">
+                        <svg class="icon me-2"><use xlink:href="#folderSearch"/></svg> {{ 'Folder Search' | translate }} 
+                    </a>
+                  </li>
+        
+                  <li class="nav-item d-flex align-items-center">
+                    <a class="nav-link " href="javascript:void(0)">Link</a>
+                  </li>
+
+                  <li class="nav-item d-flex align-items-center search-g">
+                    <a href="javascript:void(0)" class="nav-link ">
+                        <!-- <svg class="icon d-flex"><use xlink:href="#search"/></svg> -->
+                        <input type="text" class="form-control " placeholder="Search">
+                    </a>
+                </li>
+               
+            </ul>
+
+
+            <!-- <pre>From date model: {{ fromDate | json }}</pre>
+            <pre>To date model: {{ toDate | json }}</pre> -->
+            <div class="ms-auto">
+
+
+            <ul class="d-flex flex-row align-items-center ">
+                
+                <li class="nav-item d-flex align-items-center date-range mx-1">
+
+                    <!-- <div class="dp-hidden ">
+                        <div class="input-group rounded-0">
+                            <input
+                                name="datepicker"
+                                class="form-control"
+                                ngbDatepicker
+                                #datepicker="ngbDatepicker"
+                                [autoClose]="'outside'"
+                                (dateSelect)="onDateSelection($event)"
+                                [displayMonths]="2"
+                                [dayTemplate]="t"
+                                outsideDays="hidden"
+                                [startDate]="fromDate!"
+                                tabindex="-1"
+                                [placement]="'bottom-right'"
+                            />
+                            <ng-template #t let-date let-focused="focused">
+                                <span
+                                    class="custom-day"
+                                    [class.focused]="focused"
+                                    [class.range]="isRange(date)"
+                                    [class.faded]="isHovered(date) || isInside(date)"
+                                    (mouseenter)="hoveredDate = date"
+                                    (mouseleave)="hoveredDate = null"
+                                >
+                                    {{ date.day }}
+                                </span>
+                            </ng-template>
+                        </div>
+                    </div> -->
+
+                    <!-- <div class="input-group " >
+                        <input
+                            #dpFromDate
+                            class="form-control"
+                            placeholder="yyyy-mm-dd"
+                            name="dpFromDate"
+                            [value]="formatter.format(fromDate)"
+                            (input)="fromDate = validateInput(fromDate, dpFromDate.value)"
+                            data-popper-placement="top"
+                        />
+
+                        <input
+                            #dpToDate
+                            class="form-control"
+                            placeholder="yyyy-mm-dd"
+                            name="dpToDate"
+                            [value]="formatter.format(toDate)"
+                            (input)="toDate = validateInput(toDate, dpToDate.value)"
+                        />
+                    
+                        <button class="btn btn-outline-secondary" (click)="datepicker.toggle()" type="button"> <svg class="icon" ><use xlink:href="#calendar" /></svg></button>
+                    </div> -->
+
+                    <div class="input-group">
+                        <input
+                            class="form-control"
+                            placeholder="yyyy-mm-dd"
+                            name="d2"
+                            #c1="ngModel"
+                            [(ngModel)]="model1"
+                            ngbDatepicker
+                            #d2="ngbDatepicker"
+                            (click)="d2.toggle()"
+                            ngbTooltip="From Date"
+                        />
+                        <input
+                            class="form-control"
+                            placeholder="yyyy-mm-dd"
+                            name="d3"
+                            #c2="ngModel"
+                            [(ngModel)]="model2"
+                            ngbDatepicker
+                            #d3="ngbDatepicker"
+                            (click)="d3.toggle()"
+                            ngbTooltip="To Date"
+                        />
+                        <button class="btn btn-outline-secondary" type="button" style="cursor: default;"> <svg class="icon" ><use xlink:href="#calendar" /></svg></button>
+                    </div>
+
+
+            </li>
+
+                <li class="nav-item d-flex align-items-center mx-auto" ngbDropdown>
+                    <a href="javascript:void(0)" ngbDropdownToggle id="filter" aria-haspopup="true"  class="nav-link btn-link">
+                        <svg class="icon me-2"><use xlink:href="#filter"/></svg> Filter</a>
+
+                        <div class="dropdown-menu account-details dropdown-menu-end mt-2" ngbDropdownMenu aria-labelledby="filter" >
+                            <a href="javascript:void(0)" class="nav-link">
+                                Admin</a>
+                                
+                            <a href="javascript:void(0)" class="nav-link">
+                                Manager</a>
+                            
+                            <a href="javascript:void(0)" class="nav-link">
+                                Supervisor</a>      
+
+                                <a href="javascript:void(0)" class="nav-link">
+                                    Executive</a>      
+                           
+                        </div>
+                  </li>
+            </ul>
+        </div>
+        </nav>
+    </div>
+
+    <!-- <div class="row m-0 p-0 menu">
+        <div class="scroll-nav">
+            <ul class="d-flex flex-row flex-nowrap align-items-center scrollarea-x scroll-container">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#role"/></svg>Role Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#section"/></svg>Section Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#user"/></svg>User Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#priority"/></svg>Priority Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#action"/></svg>Action Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#folder"/></svg>Folder Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#cabinet"/></svg>Cabinet Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#folderper"/></svg>Folder Permission
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#mulfolderper"/></svg>Multi Folder Permission
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#folderwiseper"/></svg>Folder Wise Permission
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#userper"/></svg>User Wise Permission
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#doctype"/></svg>Doc Type Master
+                    </a>
+                </li>
+                <li class="nav-item d-flex align-items-center">
+                    <a href="#" class="nav-link">
+                        <svg class="icon"><use xlink:href="#template"/></svg>Templates
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </div> -->
+
+    <div class="row m-0 p-0 data">
+        <div class="main-table p-0 ">
+                <ul class="table-nav d-flex flex-row flex-nowrap align-items-center ">
+                    
+                 
+                    <li class="nav-item" ngbDropdown>
+                        <a href="javascript:void(0)" ngbDropdownToggle id="dropdownBasic1" aria-haspopup="true"  class="nav-link">
+                            <svg class="icon"><use xlink:href="#move"/></svg> Move
+                        </a>
+
+                        <div class="dropdown-menu account-details dropdown-menu-end mt-2" ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+                            <a href="javascript:void(0)" class="nav-link">
+                                 Movie to Other 1</a>
+                                
+                            <a href="javascript:void(0)" class="nav-link">
+                                     Movie to Other 1</a>
+                            
+                            <a href="javascript:void(0)" class="nav-link">
+                                        Movie to Other 1</a>      
+                           
+                        </div>
+                       
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon"><use xlink:href="#inbox"/></svg>Inbox
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon"><use xlink:href="#outbox"/></svg>Outbox
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <svg class="icon"><use xlink:href="#send"/></svg>Sent
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item nav-fw ">
+                        <span href="#" class="nav-link ">
+                            <svg class="icon"><use xlink:href="#search"/></svg>
+
+                            <div class="row w-100 ">
+                                <div class="col-md-12 p-0">
+                                    <input type="text" class="form-control border-0 " placeholder="Search Subject, Date, Refference No, User ">
+                                </div>
+                            </div>
+                            
+                        </span>
+                    </li> -->
+                </ul>
+      
+     
+            <ng-scrollbar class="table-height" style="height: 59vh;">
+            <ngx-table [configuration]="configuration" [data]="data" [columns]="columns" > 
+                <ng-template let-row let-index="index">
+                  <td >
+                    <div class="form-group">
+                      <label class="form-checkbox">
+                        <input type="checkbox" (change)="onChange(row)" />
+                        <i class="form-icon"></i>
+                      </label>
+                    </div>
+                  </td>
+                  <td>
+                    <svg class="icon star"><use xlink:href="#star"/></svg>
+                  </td>
+                  <td>
+                    <svg class="icon important"><use xlink:href="#important"/></svg>
+                  </td>
+                  <td>
+                    <span class="">{{ row.user }}</span>
+                  </td>
+                  <td>
+                    <div class="">{{ row.subject }}</div>
+                  </td>
+                  <td>
+                    <div class="">{{ row.project }}</div>
+                  </td>
+                  <td>
+                    <div class="">{{ row.timestamp }}</div>
+                  </td>
+                  <td>
+                    <div class="">{{ row.reference }}</div>
+                  </td>
+                  
+                </ng-template>
+              </ngx-table>
+            </ng-scrollbar>
+            <!-- <ngx-table [data]="data" [columns]="columns" [configuration]="configuration">
+            </ngx-table>
+            -->
+
+            <!-- <table class="table table-borderless">
+                <thead class="table-head">
+                  <tr>
+                    <th class="th-w">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+                    </th>
+                    <th>User <svg class="icon"><use xlink:href="#caret"/></svg></th>
+                    <th>Subject <svg class="icon"><use xlink:href="#caret"/></svg></th>
+                    <th>Submited Date & Time <svg class="icon"><use xlink:href="#caret"/></svg></th>
+                    <th>Doc Refference No <svg class="icon"><use xlink:href="#caret"/></svg></th>
+                    <th>Action <svg class="icon"><use xlink:href="#caret"/></svg></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="th-w">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> 
+                    </td>
+                    <td>Abdul Baatin</td>
+                    <td>18/07/2022 11:30</td>
+                    <td>Lorem ipsum dolor sit</td>
+                    <td>2017/60/Ullamco laboris</td>
+                    <td class="table-edits">
+                        <svg class="icon edit"><use xlink:href="#edit"/></svg>
+                        
+                    </td>
+                  </tr>
+                
+            
+              </table>    -->
+           
+       
+    
+
+        </div>
+    </div>

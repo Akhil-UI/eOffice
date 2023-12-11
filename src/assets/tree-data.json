@@ -1,0 +1,66 @@
+[
+  {
+    "label": "Main",
+    "children": [
+      {
+        "label": "Users",
+        "children": [
+          {
+            "label": "Admin",
+            "children": [
+              {
+                "label": "Documents",
+                "type": "dir"
+              },
+              {
+                "label": "Downloads",
+                "type": "dir"
+              },
+              {
+                "label": "Pictures",
+                "type": "dir"
+              },
+              {
+                "label": "Videos",
+                "type": "dir"
+              }
+            ]
+          },
+          {
+            "label": "Guest",
+            "children": [
+              {
+                "label": "Documents",
+                "type": "dir"
+              },
+              {
+                "label": "Downloads",
+                "type": "dir"
+              },
+              {
+                "label": "Pictures",
+                "type": "dir"
+              },
+              {
+                "label": "Videos",
+                "type": "dir"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "label": "Program Files",
+        "type": "dir"
+      },
+      {
+        "label": "Program Files (x86)",
+        "type": "dir"
+      },
+      {
+        "label": "Windows",
+        "type": "dir"
+      }
+    ]
+  }
+]

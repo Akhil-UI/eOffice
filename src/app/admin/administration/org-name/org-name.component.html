@@ -1,0 +1,198 @@
+
+<section class="ejob-section" >
+
+	<ng-scrollbar class="w-100 h-100">
+
+  
+          <form class="row g-3 datasearch justify-content-center" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="col-md-3 ">
+              <label class="mb-1">Org Name {{ 'Folder Search' | translate }} </label>
+              <input
+              type="text"
+              formControlName="orgName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['orgName'].errors }"/>
+              <div *ngIf="submitted && f['orgName'].errors" class="invalid-feedback">
+              <div *ngIf="f['orgName'].errors['required']">
+                Org Name is required
+              </div>
+              </div>
+          </div>
+      
+          <div class="col-md-3">
+              <label class="mb-1">Org Name in Arabic</label>
+              <input 
+              type="text"
+              formControlName="orgAribic"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['orgAribic'].errors }"/>
+              <div *ngIf="submitted && f['orgAribic'].errors" class="invalid-feedback">
+              <div *ngIf="f['orgAribic'].errors['required']">
+                Org Name in Arabic is required
+              </div>
+              </div>
+          </div>
+
+          <div class="col-md-3">
+            <label class="mb-1">Parent Org Id</label>
+            <select class="form-select" formControlName="orgId" [ngClass]="{ 'is-invalid': submitted && f['orgId'].errors }" >
+              <option value="" disabled selected>Select Parent Org Id</option>
+              <option value="1">Parent Org Id 1</option>
+              <option value="2">Parent Org Id 2</option>
+              <option value="3">Parent Org Id 3</option>
+            </select>
+            <div *ngIf="submitted && f['orgId'].hasError('required')" class="invalid-feedback">
+              Parent Org Id is required
+            </div>
+          </div>
+      
+          <div class="col-md-3">
+            <label class="mb-1">Org Type</label>
+            <select class="form-select" formControlName="orgType" [ngClass]="{ 'is-invalid': submitted && f['orgType'].errors }">
+              <option value="" disabled selected>Select Parent Org Id</option>
+              <option value="1">Parent Org Id 1</option>
+              <option value="2">Parent Org Id 2</option>
+              <option value="3">Parent Org Id 3</option>
+            </select>
+            <div *ngIf="submitted && f['orgType'].hasError('required')" class="invalid-feedback">
+              Org Type is required
+            </div>
+          </div>
+         
+          <div class="col-md-3 ng-select" >
+
+            <label class="mb-1">Parent Org Id</label>
+            <ng-select [clearOnBackspace]="true" [clearable]="false"  [(ngModel)]="parentOrgId" formControlName="parentOrgId" placeholder="Select Parent Org Id Single" [ngClass]="{ 'is-invalid': submitted && f['orgId'].errors }">
+              <ng-option *ngFor="let orgId of orgId" [value]="orgId.id">{{
+                orgId.name
+              }}</ng-option>
+            </ng-select>
+
+            <div >
+              Selected Parent: {{selectedOrg?.name}}
+          </div>
+
+            <div *ngIf="submitted && f['orgId'].hasError('required')" class="invalid-feedback">
+              Parent Org Id is required
+            </div>
+
+            <br>
+            
+            <label class="mb-1">Parent Org Id</label>
+            <ng-select [multiple]="true" [(ngModel)]="parentOrgIdm" formControlName="parentOrgIdm"  placeholder="Select Parent Org Id Single" 
+            clearAllText="Clear" [ngClass]="{ 'is-invalid': submitted && f['orgId'].errors }">
+              <ng-option *ngFor="let orgId of orgId" [value]="orgId.id">{{
+                orgId.name
+              }}</ng-option>
+            </ng-select>
+            <div *ngIf="submitted && f['orgId'].hasError('required')" class="invalid-feedback">
+              Parent Org Id is required
+            </div>
+            </div>
+         
+          <div class="row btn-row justify-content-center">
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-submit mx-2">Submit</button>
+              <!-- <button type="button" class="btn btn-update">Update</button> -->
+              <button type="button" class="btn btn-danger mx-2" (click)="onReset()">Reset</button>
+            </div>
+          </div>
+       
+           
+  
+          </form>
+    
+    <hr class="gradient-line">
+
+
+    <div class="row m-0 p-0 data">
+      <div class="table-result p-0 ">
+          <ng-scrollbar class="table-height" style="height: 59vh;">
+          <ngx-table [configuration]="configuration" [data]="data" [columns]="columns" (event)="onEvent($event)" > 
+              <ng-template let-row let-index="index">
+
+                <td>
+                  <span class="">{{ row.sno }}</span>
+                </td>
+                <td>
+                  <div class="">{{ row.orgName }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.orgNameAr }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.status }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.createdBy }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.updatedON }}</div>
+                </td>
+                <td>
+                  <button class="btn table-btn btn-edit" (click)="openModal(content, row)">Edit</button>
+                </td>
+                
+              </ng-template>
+            </ngx-table>
+
+         
+          </ng-scrollbar>
+       
+    
+      </div>
+    </div>
+    
+   
+
+    </ng-scrollbar>
+
+</section>
+
+
+  <!-- <app-table></app-table> -->
+  <ng-template #content let-modal>
+    <div class="modal-header justify-content-center">
+      <h4 class="modal-title" id="modal-basic-title"> update</h4>
+      
+    </div>
+    <div class="modal-body ">
+      <form [formGroup]="editData" (ngSubmit)="onEdit()">
+        <div class="p-2 row">
+            <label class="p-0 mb-1">Org Name</label>
+            <input 
+            type="text"
+            formControlName="orgName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['orgName'].errors }"/>
+            <div *ngIf="submitted && f['orgName'].errors" class="invalid-feedback">
+            <div *ngIf="f['orgName'].errors['required']">
+              Org Name is required
+            </div>
+            </div>
+        </div>
+    
+        <div class="p-2 row">
+            <label class="p-0 mb-1">Org Name in Arabic</label>
+            <input
+            type="text"
+            formControlName="orgNameAr"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['orgAribic'].errors }"/>
+            <div *ngIf="submitted && f['orgAribic'].errors" class="invalid-feedback">
+            <div *ngIf="f['orgAribic'].errors['required']">
+              Org Name in Arabic is required
+            </div>
+            </div>
+        </div>
+
+
+          <pre>{{ selected }}</pre>
+    
+      </form>
+    </div>
+    <div class="modal-footer mb-2 justify-content-center">
+      <button type="button" class="btn btn-update mx-2" (click)="modal.close('Save click')">Update</button>
+      <button type="button" class="btn btn-danger mx-2" (click)="modal.dismiss('Cross click')">Cancel</button>
+    </div>
+  </ng-template>

@@ -1,0 +1,224 @@
+
+
+<section class="ejob-section" >
+	<ng-scrollbar class="w-100 h-100">
+
+    <div class="row justify-content-center">
+    <div class="col-md-8">
+          <form class="row g-3 datasearch " [formGroup]="form" (ngSubmit)="onSubmit()">
+            
+          <div class="col-md-6 ">
+              <label class="mb-1">Login Id</label>
+              <input
+              type="text"
+              formControlName="loginId"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['loginId'].errors }"
+              />
+              <div *ngIf="submitted && f['loginId'].errors" class="invalid-feedback">
+              <div *ngIf="f['loginId'].errors['required']">
+                Login Id is required
+              </div>
+              </div>
+          </div>
+      
+          <div class="col-md-6">
+              <label class="mb-1">Display Name</label>
+              <input
+              type="text"
+              formControlName="displayName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['displayName'].errors }"
+              />
+              <div *ngIf="submitted && f['displayName'].errors" class="invalid-feedback">
+              <div *ngIf="f['displayName'].errors['required']">
+                Display Name is required
+              </div>
+              </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="mb-1">First Name</label>
+            <input
+            type="text"
+            formControlName="firstName"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['firstName'].errors }"
+            />
+            <div *ngIf="submitted && f['firstName'].errors" class="invalid-feedback">
+            <div *ngIf="f['firstName'].errors['required']">
+              First Name is required
+            </div>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+          <label class="mb-1">Last Name</label>
+          <input
+          type="text"
+          formControlName="lastName"
+          class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f['lastName'].errors }"
+          />
+          <div *ngIf="submitted && f['lastName'].errors" class="invalid-feedback">
+          <div *ngIf="f['lastName'].errors['required']">
+            Last Name is required
+          </div>
+          </div>
+      </div>
+
+      <div class="col-md-6">
+        <label class="mb-1">Ldap Identifier</label>
+        <input
+        type="text"
+        formControlName="ldapIdentifier"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f['ldapIdentifier'].errors }"
+        />
+        <div *ngIf="submitted && f['ldapIdentifier'].errors" class="invalid-feedback">
+        <div *ngIf="f['ldapIdentifier'].errors['required']">
+          Ldap Identifier is required
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+
+      <label class="mb-1">Hired Date</label>
+        <div class="input-group">
+          <input
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            name="dp"
+            [(ngModel)]="model"
+            ngbDatepicker
+            #d="ngbDatepicker"
+            formControlName="hireDate"
+            [ngClass]="{ 'is-invalid': submitted && f['hireDate'].errors }"
+          />
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg class="icon" ><use xlink:href="#calendar" /></svg></button>
+          <div *ngIf="submitted && f['hireDate'].errors" class="invalid-feedback">
+            <div *ngIf="f['hireDate'].errors['required']">
+              Hired Date is required
+            </div>
+            </div>
+        </div>
+
+        
+    
+    </div>
+
+
+      <div class="col-md-6">
+        <label class="mb-1">Date of Birth</label>
+        <div class="input-group">
+          <input
+            class="form-control"
+            placeholder="yyyy-mm-dd"
+            name="dp"
+            [(ngModel)]="model"
+            ngbDatepicker
+            #d="ngbDatepicker"
+            formControlName="dateOfBirth"
+            [ngClass]="{ 'is-invalid': submitted && f['dateOfBirth'].errors }"
+          />
+          <button class="btn btn-outline-secondary" (click)="d.toggle()" type="button"><svg class="icon" ><use xlink:href="#calendar" /></svg></button>
+
+          <div *ngIf="submitted && f['dateOfBirth'].errors" class="invalid-feedback">
+            <div *ngIf="f['dateOfBirth'].errors['required']">
+              Date Of Birth is required
+            </div>
+            </div>
+        </div>
+      
+    </div>
+
+    <div class="col-md-6">
+      <label class="mb-1">Designation</label>
+      <input
+      type="text"
+      formControlName="designation"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['designation'].errors }"
+      />
+      <div *ngIf="submitted && f['designation'].errors" class="invalid-feedback">
+      <div *ngIf="f['designation'].errors['required']">
+        Designation is required
+      </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <label class="mb-1">User Id</label>
+      <input
+      type="text"
+      formControlName="userId"
+      class="form-control"
+      [ngClass]="{ 'is-invalid': submitted && f['userId'].errors }"
+      />
+      <div *ngIf="submitted && f['userId'].errors" class="invalid-feedback">
+      <div *ngIf="f['userId'].errors['required']">
+        User Id is required
+      </div>
+      </div>
+    </div>
+
+      
+       
+          <div class="row btn-row justify-content-center">
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-submit mx-2">Submit</button>
+              <!-- <button type="button" class="btn btn-update">Update</button> -->
+              <button type="button" class="btn btn-danger mx-2" (click)="onReset()">Reset</button>
+            </div>
+          </div>
+          
+          </form>
+        </div>
+        </div>
+  
+          <hr class="gradient-line">
+
+    <div class="row m-0 p-0 data">
+      <div class=" table-result p-0 ">
+          <ng-scrollbar class="table-height" style="height: 59vh;">
+          <ngx-table [configuration]="configuration" [data]="data" [columns]="columns" > 
+              <ng-template let-row let-index="index">
+  
+                <td>
+                  <span class="">{{ row.sno }}</span>
+                </td>
+                <td>
+                  <div class="">{{ row.actionName }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.actionNameAr }}</div>
+                </td>
+                <td>
+                  <div class="form-check form-switch">
+                    <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault" [checked]="row.status === 'true'">
+                    <label class="form-check-label" for="flexSwitchCheckDefault">{{ row.status === 'true' ? 'Active' : 'In Active' }}</label>
+                  </div>
+                </td>
+                <td>
+                  <div class="">{{ row.createdBy }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.updatedON }}</div>
+                </td>
+              </ng-template>
+            </ngx-table>
+              
+            </ng-scrollbar>
+       
+    
+      </div>
+    </div>
+    
+
+
+    </ng-scrollbar>
+</section>
+  
+
+  <!-- <app-table></app-table> -->

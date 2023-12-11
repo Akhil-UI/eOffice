@@ -1,0 +1,322 @@
+<section class="scan-doc h-100" >
+
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs d-flex justify-content-start ">
+    <li [ngbNavItem]="1">
+      <button ngbNavLink class="btn btn-tab d-flex align-items-center">
+        <svg class="icon"><use xlink:href="#eScan"></use> </svg> <span class="link-title mx-2">{{ 'Scan' | translate }}</span>
+      </button>
+
+      <ng-template ngbNavContent>
+          <div class="tab-cnt" >
+            <ng-scrollbar class="w-100 h-100">
+
+              <div class="row doc-scantab">
+                  <div class="col-8">
+
+
+                    <ul class="d-flex align-items-center">
+                        <li placement="bottom" ngbTooltip="Remove Current Page"> <svg class="icon"><use xlink:href="#removedoc"></use> </svg> </li>
+                        <li class="vr m-0"></li>
+                        <li placement="bottom" ngbTooltip="Remove All Pages"> <svg class="icon"><use xlink:href="#removedoc"></use> </svg> </li>
+                        <li class="vr m-0"></li>
+                        <li class="page-count"> <span class="current-doc doc-no">1</span> / <span class="all-doc doc-no">2</span></li>
+                        <li class="vr m-0"></li>
+                        <li class="page-zoom">
+                          <span><svg class="stroke"><use xlink:href="#minus"></use></svg></span>
+                          <span class="zoom-percentage"> 33.3%</span>  
+                          <span><svg class="stroke"><use xlink:href="#pluse"></use></svg></span>
+                        </li>
+                        <li class="vr m-0"></li>
+                    </ul> 
+                    
+                  </div>
+                  
+                  <div class="col-4 border docsave-section p-0">
+                     
+                    <h1 class="docsave-title">Save Documents</h1>
+
+                    <form class="docsave-formsection mb-3">
+
+                      <div class="row mb-2 ">
+                        <div class="col-12">
+                          <label for="filename" class="col-form-label">{{ 'File Name' | translate }}</label>
+                          <input type="text" id="filename" class="form-control">
+                        </div>
+                      </div>
+
+                      <div class="row mb-2 ">
+                        <div class="col-12">
+                            <fieldset class="border p-2">
+                              <legend class="float-none w-auto px-2 col-form-label">{{ 'Document Sub Route' | translate }} </legend>
+                            <div class="form-check form-check-inline mx-3">
+                              <input class="form-check-input" type="radio" name="pageSelect" id="currentPage" value="currentPage" >
+                              <label class="form-check-label" for="currentPage">{{ 'Current Page' | translate }}</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-3">
+                              <input class="form-check-input" type="radio" name="pageSelect" id="allPages" value="allPages" >
+                              <label class="form-check-label" for="allPages">{{ 'All Pages' | translate }}</label>
+                            </div>
+                          </fieldset>
+                        </div>
+                      </div>
+
+                      <div class="row mb-2 ">
+                        <div class="col-12">
+                          <label for="cstinfo" class="col-form-label"> {{ 'Optional Custom Info' | translate }} </label>
+                          <input type="text" id="cstinfo" class="form-control">
+                        </div>
+                      </div>
+
+                      <!-- <div class="row mt-3 align-items-center text-left">
+                        <div class="">
+                          <button type="button" class="btn btn-submit">Upload</button>
+                        </div>
+                      </div> -->
+
+                    </form>
+
+                    <!-- <h1 class="docsave-title">{{ 'Uploaded Files' | translate }}</h1>
+
+                    <div class="recent-upload">
+                      <div class="upload-filename">Upload 1</div>
+                      <div class="upload-filename">Upload 2</div>
+                      <div class="upload-filename">Upload 3</div>
+                      <div class="upload-filename">Upload 4</div>
+                      <div class="upload-filename">Upload 5</div>
+                    </div> -->
+
+
+                  </div>
+
+
+            
+              </div>
+            </ng-scrollbar>
+          </div>
+      </ng-template>
+    </li>
+  
+    <li [ngbNavItem]="2">
+      <button ngbNavLink class="btn btn-tab d-flex align-items-center">
+        <svg class="icon"><use xlink:href="#reports"></use> </svg> <span class="link-title mx-2">
+          {{ 'Form Fields' | translate }}</span>
+      </button>
+  
+      <ng-template ngbNavContent>
+        <div class="tab-cnt ejob-section" >
+          <ng-scrollbar class="w-100 h-100">
+      
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center align-items-center ">
+             
+                <form class="form-section col-7">
+								
+                  <div class="input-block mt-2 shadow-sm">
+
+                  <div class="row mb-2 ">
+                    <div class="col-12">
+                      <label for="" class="col-form-label">{{ 'Documnet Type' | translate }} </label>
+                        <select class="form-select" >
+                          <option selected>Select The Type</option>
+                          <option value="letter">Letter</option>
+                          <option value="memo">Memo</option>
+                          <option value="email">Email</option>
+                        </select>
+                    </div>
+                  </div>
+
+                    <div class="row mb-2 ">
+                      <div class="col-12">
+                        <label for="refno" class="col-form-label">{{ 'Ref Number' | translate }}</label>
+                        <input type="text" id="refno" class="form-control" >
+
+                      </div>
+                    </div>
+
+                    <div class="row mb-2 ">
+                      <div class="col-6">
+                        <fieldset class="border p-2">
+                          <legend class="float-none w-auto px-2 col-form-label">{{ 'Document Route' | translate }}</legend>
+                            <div class="form-check form-check-inline mx-3">
+                              <input class="form-check-input" type="radio" name="route" id="incoming" value="incoming" [(ngModel)]="selectedOption">
+                              <label class="form-check-label" for="incoming">{{ 'Incoming' | translate }}</label>
+                            </div>
+                            <div class="form-check form-check-inline mx-3">
+                              <input class="form-check-input" type="radio" name="route" id="outgoing" value="outgoing" [(ngModel)]="selectedOption">
+                              <label class="form-check-label" for="outgoing" >{{ 'Outgoing' | translate }}</label>
+                            </div>
+                        </fieldset>
+                      </div>
+
+                      <div class="col-6">
+                        <fieldset class="border p-2">
+                          <legend class="float-none w-auto px-2 col-form-label">{{ 'Document Sub Route' | translate }}</legend>
+                        <div class="form-check form-check-inline mx-3">
+                          <input class="form-check-input" type="radio" name="subroute" id="internal" value="internal" [(ngModel)]="selectedOption">
+                          <label class="form-check-label" for="internal">{{ 'Internal' | translate }}</label>
+                        </div>
+                        <div class="form-check form-check-inline mx-3">
+                          <input class="form-check-input" type="radio" name="subroute" id="external" value="external" [(ngModel)]="selectedOption">
+                          <label class="form-check-label" for="external">{{ 'External' | translate }}</label>
+                        </div>
+                      </fieldset>
+                      </div>
+                    </div>
+
+                    <div class="row mb-2 " *ngIf="selectedOption === 'incoming'">
+                      <div class="col-12">
+                        <label for="folder" class="col-form-label">{{ 'Folder' | translate }}</label>
+                        <input type="text" id="folder" class="form-control">
+                      </div>
+                    </div>
+
+                    <div class="row mb-2 " *ngIf="selectedOption === 'internal'">
+                        <div class="col-6">
+                          <label for="" class="col-form-label">{{ 'Org Unit1' | translate }}</label>
+                            <select class="form-select">
+                              <option selected>Select Unit</option>
+                              <option value="unit1">Unit1</option>
+                              <option value="unit2">Unit2</option>
+                            </select>
+                        </div>
+                        <div class="col-6">
+                          <label for="" class="col-form-label">{{ 'Org Unit2' | translate }}</label>
+                            <select class="form-select">
+                              <option selected>Select Unit</option>
+                              <option value="unit1">Unit1</option>
+                              <option value="unit2">Unit2</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row mb-2 " *ngIf="selectedOption === 'external'">
+                      <div class="col-12 mb-2">
+                        <label for="" class="col-form-label">{{ 'External Location' | translate }}</label>
+                          <select class="form-select">
+                            <option selected>Select Location</option>
+                            <option value="location1">Location 1</option>
+                            <option value="location2">Location 2</option>
+                            <option value="location3">Location 3</option>
+                            <option value="location4">Location 4</option>
+                          </select>
+                      </div>
+                      <div class="col-12">
+                        <label for="folder" class="col-form-label">{{ 'User Name' | translate }}</label>
+                        <input type="text" id="folder" class="form-control">
+                      </div>
+                  </div>
+
+                  <div class="row mb-2 ">
+                    <div class="col-12">
+                      <label for="subject" class="col-form-label">{{ 'Subject' | translate }}</label>
+                      <input type="text" id="subject" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="row mb-2 ">
+                    <div class="col-6">
+                      <label for="" class="col-form-label">{{ 'Priority' | translate }} </label>
+                        <select class="form-select">
+                          <option selected>Select Priority</option>
+                          <option value="priority1">priority1</option>
+                          <option value="priority2">priority2</option>
+                          <option value="priority3">priority3</option>
+                        </select>
+                    </div>
+                    <div class="col-6">
+                      <label for="" class="col-form-label">{{ 'Classifcation' | translate }} </label>
+                        <select class="form-select">
+                          <option selected>Select Classifcation</option>
+                          <option value="Classifcation1">Classifcation1</option>
+                          <option value="Classifcation2">classifcation2</option>
+                          <option value="Classifcation3">classifcation3</option>
+                        </select>
+                    </div>
+                  </div>
+
+                  <div class="row mb-2 ">
+                    <div class="col-6">
+                      <label for="receivedDate" class="col-form-label">{{ 'Received Date' | translate }}</label>
+                      <input type="text" id="receivedDate" class="form-control">
+                    </div>
+                    <div class="col-6">
+                      <label for="drefno" class="col-form-label">{{ 'Ref No' | translate }} </label>
+                      <input type="text" id="drefno" class="form-control">
+                    </div>
+                  </div>
+
+                  <div class="row mb-2 ">
+                    <div class="col-12">
+                      <label for="" class="col-form-label">{{ 'Archiever' | translate }} </label>
+                        <select class="form-select">
+                          <option selected>Select Archiever</option>
+                          <option value="Archiever1">Archiever1</option>
+                          <option value="Archiever2">Archiever2</option>
+                          <option value="Archiever3">Archiever3</option>
+                        </select>
+                    </div>
+                  </div>
+
+
+                  <!-- <div class="row mt-3 align-items-center text-center">
+                    <div class="">
+                      <button type="submit" class="btn btn-submit">Next</button>
+                    </div>
+                  </div> -->
+                    
+                  </div>
+              </form>
+            
+              </div>
+            </div>
+          </ng-scrollbar>
+        </div>
+      </ng-template>
+    </li>
+  
+    <li [ngbNavItem]="3">
+      <button ngbNavLink class="btn btn-tab d-flex align-items-center">
+        <svg class="icon"><use xlink:href="#edit"></use> </svg> <span class="link-title mx-2">{{ 'Comments' | translate }}</span>
+      </button>
+      <ng-template ngbNavContent>
+        <div class="tab-cnt d-flex justify-content-center align-items-center" >
+          <ng-scrollbar class="w-100  h-100">
+          
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center align-items-center ">
+               <form class="form-section col-7 ">
+                
+                <div class="row align-items-center data-catlog mt-0">
+               
+                    <div class="col-12">
+                      <label for="refno" class="col-form-label">{{ 'Remarks / Comments' | translate }}  </label>
+                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
+                   </div>
+
+                   <div class="row mt-3 align-items-center text-center">
+                    <div class="">
+                      <button type="submit" class="btn btn-submit">Submit</button>
+                    </div>
+                  </div>
+
+                 </div>
+
+               
+                </form>
+            </div>
+            </div>
+           
+          </ng-scrollbar>
+   
+ 
+        </div>
+      </ng-template>
+  </ul>
+  
+  
+  
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+  
+  
+  </section>
+  

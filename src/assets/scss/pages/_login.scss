@@ -1,0 +1,149 @@
+/* Login Page Styles */
+
+/* Change Autocomplete styles in Chrome*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+  background-color: #ffffff;
+}
+
+input[type='password'] {
+    font-family: Verdana;
+    letter-spacing: 0.125em;
+}
+
+.form-floating > .form-control, .form-floating > .form-control-plaintext, .form-floating > .form-select {
+    height: calc(3rem + calc(var(--bs-border-width) * 2));
+    min-height: calc(3rem + calc(var(--bs-border-width) * 2));
+    line-height: 1.25;
+}
+
+.form-floating > .form-control:focus ~ label, .form-floating > .form-control:not(:placeholder-shown) ~ label, .form-floating > .form-control-plaintext ~ label, .form-floating > .form-select ~ label {
+    color: #002F31 !important;
+    transform: scale(0.9) translateY(-1.75rem) translateX(0.5rem);
+    background-color: transparent !important;
+    padding: 0.925rem 1rem !important;
+}
+.form-floating > .form-control:focus, .form-floating > .form-control:not(:placeholder-shown), .form-floating > .form-control-plaintext:focus, .form-floating > .form-control-plaintext:not(:placeholder-shown) {
+    padding-top: 0.625rem;
+    padding-bottom: 0.625rem;
+    background-color: #ffffff;
+}
+.form-control:visited{
+    background-color: #ffffff;
+}
+
+.form-control:focus {
+    background-color: #ffffff !important;
+    border-color: #5ABA8A;
+    outline: 0;
+    box-shadow: none;
+}
+
+
+.login-page{
+
+    min-height: 100vh;
+    width: 100%;
+
+    .about-app{
+
+        background-color: #f9f9f9;
+        min-height: 100vh;
+
+        h1{
+            font-size: 1rem;
+            color:$secondary-color;
+            
+        }
+    }
+    .login-form{
+        background-color: #ffffff;
+        min-height: 100vh;
+
+        .loginform-h1{
+            color: $primary-color;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .loginform-text{
+            text-align: center;
+            color: #95B0B9;
+            margin-bottom: 1rem;                
+        }
+
+
+        form{
+
+            .form-control{
+                font-size: 1rem;
+                background-color: #f9f9f9;
+            }
+            .form-floating{
+                label{
+                    padding: 0.825rem 2rem;
+                    padding-left: 3rem;
+                    color: #95B0B9;
+                }
+                .float-text{
+                    background-color: transparent !important;
+                    color: #95B0B9;
+                    font-size: 1rem;
+                }
+                .form-control{
+                    position: relative;
+                    padding-left: 3rem;
+                    color: #002F31;
+                    font-size: 1rem;
+                }
+                .svg-div{
+                    height: calc(3rem + calc(var(--bs-border-width) * 2));
+                    min-height: calc(3rem + calc(var(--bs-border-width) * 2));
+                    line-height: 1.25;
+                    position: absolute;
+                    z-index: 1;
+                    display: inline-block;
+                    background-color:transparent;
+                    display: flex;
+                    align-items: center;
+                    padding: 0 1.1rem;
+
+                    .icon{
+                        width:18px;
+                        height:18px;
+                        fill: #CBD8DC;
+                    }
+                }
+               
+                
+            }
+           
+            .btn-submit{
+                background-color: $secondary-color;
+                color: $white-color;
+                padding: 1rem;
+            }
+        }
+    }
+
+}
+
+

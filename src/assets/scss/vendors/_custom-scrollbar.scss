@@ -1,0 +1,52 @@
+
+/** Customize scrollbar with the css variables **/
+
+ng-scrollbar{
+    --scrollbar-border-radius: 7px !important;
+    --scrollbar-padding: 4px !important;
+    --scrollbar-viewport-margin: 0 !important;
+    --scrollbar-track-color: transparent !important;
+    --scrollbar-wrapper-color: transparent !important;
+    --scrollbar-thumb-color: rgba(0, 0, 0, 0.2) !important;
+    --scrollbar-thumb-hover-color: var(--scrollbar-thumb-color) !important;
+    --scrollbar-size: 5px !important;
+    --scrollbar-hover-size: var(--scrollbar-size) !important;
+    --scrollbar-thumb-transition: height ease-out 150ms, width ease-out 150ms !important;
+    --scrollbar-track-transition: height ease-out 150ms, width ease-out 150ms !important;
+  }
+
+/* Track */
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
+/* Handle or thumb */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Color of the handle */
+  border-radius: 0px; /* Rounded corners of the handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Color of the handle on hover */
+}
+
+/* Track on hover */
+::-webkit-scrollbar-track:hover {
+  background: #f1f1f1; /* Color of the track on hover */
+}
+
+/* Track and handle when scrollbar is in an inactive state (like in macOS) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color of the track */
+}
+
+/* Button (arrows) on the scrollbar (optional) */
+::-webkit-scrollbar-button {
+  display: none; /* Hide the buttons */
+}
+
+/* Corner between vertical and horizontal scrollbars (optional) */
+::-webkit-scrollbar-corner {
+  background: transparent; /* Color of the scrollbar corner */
+}

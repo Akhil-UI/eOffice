@@ -1,0 +1,32 @@
+<div class="row m-0 p-0 data">
+  <div class="main-table p-0 ">
+      <ng-scrollbar class="table-height" style="height: 59vh;">
+      <ngx-table [configuration]="configuration" [data]="data" [columns]="columns" > 
+          <ng-template let-row let-index="index">
+            <td>
+             
+            </td>
+          
+            <td>
+              <span class="">{{ row.user }}</span>
+            </td>
+            <td>
+              <div class="">{{ row.subject }}</div>
+            </td>
+            <td>
+              <div class="">{{ row.project }}</div>
+            </td>
+            <td>
+              <div class="">{{ row.timestamp }}</div>
+            </td>
+            <td>
+              <div class="">{{ row.reference }}</div>
+            </td>
+            
+          </ng-template>
+        </ngx-table>
+      </ng-scrollbar>
+   
+
+  </div>
+</div>

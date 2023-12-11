@@ -1,0 +1,111 @@
+<section class="ejob-section" >
+	<ng-scrollbar class="w-100 h-100">
+					<div class="row">
+						<div class="col-12 d-flex justify-content-center align-items-center">
+							
+								<form class="form-section col-7">
+								
+										<div class="input-block mt-2">
+
+											<div class="input-group mb-3">
+												<span class="input-group-text col-2" id="basic-addon2"> <svg class="icon mx-2"><use xlink:href="#mail"></use> </svg> To </span>
+												<input type="email" class="form-control col-10" placeholder="emailto@mail.com">
+												
+											</div>
+
+											<div class="input-group mb-3">
+												<span class="input-group-text col-2" id="basic-addon2"><svg class="icon mx-2"><use xlink:href="#mail"></use> </svg> CC  </span>
+												<input type="email" class="form-control col-10" placeholder="emailto@mail.com">
+											</div>
+
+					
+											<div class="row g-3 mb-3 align-items-center">
+												<div class="col-2">
+													<label for="subject" class="col-form-label">{{ 'Subject' | translate }}</label>
+												</div>
+												<div class="col-10">
+													<input type="text" id="subject" class="form-control">
+												</div>
+											
+											</div>
+
+
+											<div class="row g-3 mb-3 align-items-center">
+													<div class="col-2">
+														{{ 'Reply Date' | translate }}
+													</div>
+													<div class="col-4">
+															<input type="text" id="subject" class="form-control">
+													</div>
+													
+													<div class="col-2">
+														{{ 'Folder' | translate }}
+												 </div>
+												 <div class="col-4">
+														<select class="form-select">
+															<option selected>Select The Folder</option>
+															<option value="1">One</option>
+															<option value="2">Two</option>
+															<option value="3">Three</option>
+														</select>
+												 </div>
+											</div>
+
+											<div class="row g-3 mb-3 align-items-center">
+												<div class="col-2">
+													{{ 'Classification' | translate }}
+												</div>
+												<div class="col-4">
+													<select class="form-select">
+														<option selected>Select The Folder</option>
+														<option value="1">One</option>
+														<option value="2">Two</option>
+														<option value="3">Three</option>
+													</select>
+												</div>
+												
+												<div class="col-2">
+													{{ 'Priority' | translate }}
+											 </div>
+											 <div class="col-4">
+												<select class="form-select">
+													<option selected>Select The Folder</option>
+													<option value="1">One</option>
+													<option value="2">Two</option>
+													<option value="3">Three</option>
+												</select>
+											</div>
+										</div>
+
+										<div class="row g-3 mb-3 align-items-center">
+											<div class="col-12">
+
+													<quill-editor [styles]="{height: '150px'}" #editor></quill-editor>
+
+											</div>
+										</div>
+
+										<div class="row g-3 mb-3 align-items-center">
+											<div class="d-flex flex-row">
+												<div class="mx-2 form-check">
+													<input type="checkbox" class="form-check-input" id="exampleCheck1">
+													<label class="form-check-label" for="exampleCheck1">{{ 'Check' | translate }}</label>
+												</div>
+												<div class="mx-2">
+													<button type="submit" class="btn btn-primary">{{'Submit' | translate }}</button>
+												</div>
+												<div class="mx-2 col-5">
+													<input class="form-control" type="file" id="formFile">
+												</div>
+											</div>
+										</div>
+										
+											
+										</div>
+								</form>
+					
+						</div>
+					</div>
+		
+	</ng-scrollbar>
+</section>

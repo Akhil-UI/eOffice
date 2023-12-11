@@ -1,0 +1,317 @@
+
+<section class="ejob-section" >
+	<ng-scrollbar class="w-100 h-100">
+
+    <div class="row">
+      <div class="d-flex justify-content-center">
+        
+        <div class="filter-section ">
+            <div class="row ">
+             
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Total">
+                            <label for="floatingInput" class="float-text">Privilege Fields</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Total">
+                            <label for="floatingInput" class="float-text">Privilege Fields</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Total">
+                            <label for="floatingInput" class="float-text">Privilege Fields</label>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Total">
+                            <label for="floatingInput" class="float-text">Privilege Fields</label>
+                        </div>
+                    </div>
+            </div>
+                <div class="row m-0 d-flex justify-content-center">
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-submit">Submit</button>
+                    </div>
+                </div>
+            </div>
+      </div>
+    </div>
+
+    <hr class="my-3">
+
+    
+     <div class="row justify-content-center" >
+        <div class="col-8 ">
+
+            <h1 class="my-4 fs-2">Validation Form</h1>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+            <label>Full Name</label>
+            <input
+            type="text"
+            formControlName="fullname"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['fullname'].errors }"
+            />
+            <div *ngIf="submitted && f['fullname'].errors" class="invalid-feedback">
+            <div *ngIf="f['fullname'].errors['required']">
+                Fullname is required
+            </div>
+            </div>
+        </div>
+    
+        <div class="mb-3">
+            <label>Username</label>
+            <input
+            type="text"
+            formControlName="username"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+            />
+            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+            <div *ngIf="f['username'].errors['required']">
+                Username is required
+            </div>
+            <div *ngIf="f['username'].errors['minlength']">
+                Username must be at least 6 characters
+            </div>
+            <div *ngIf="f['username'].errors['maxlength']">
+                Username must not exceed 20 characters
+            </div>
+            </div>
+        </div>
+    
+        <div class="mb-3">
+            <label>Email</label>
+            <input
+            type="text"
+            formControlName="email"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            />
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+        </div>
+    
+        <div class="mb-3">
+            <label>Password</label>
+            <input
+            type="password"
+            formControlName="password"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+            <div *ngIf="f['password'].errors['required']">
+                Password is required
+            </div>
+            <div *ngIf="f['password'].errors['minlength']">
+                Password must be at least 6 characters
+            </div>
+            <div *ngIf="f['password'].errors['maxlength']">
+                Username must not exceed 40 characters
+            </div>
+            </div>
+        </div>
+    
+        <div class="mb-3">
+            <label>Confirm Password</label>
+            <input
+            type="password"
+            formControlName="confirmPassword"
+            class="form-control"
+            [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+            />
+            <div
+            *ngIf="submitted && f['confirmPassword'].errors"
+            class="invalid-feedback"
+            >
+            <div *ngIf="f['confirmPassword'].errors['required']">
+                Confirm Password is required
+            </div>
+            <div *ngIf="f['confirmPassword'].errors['matching']">
+                Confirm Password does not match
+            </div>
+            </div>
+        </div>
+    
+        <!-- <div class="mb-3 form-check">
+            <input
+            type="checkbox"
+            formControlName="acceptTerms"
+            class="form-check-input"
+            [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+            />
+            <label for="acceptTerms" class="form-check-label"
+            >I have read and agree to the Terms</label
+            >
+            <div
+            *ngIf="submitted && f['acceptTerms'].errors"
+            class="invalid-feedback"
+            >
+            Accept Terms is required
+            </div>
+        </div> -->
+    
+        <div class="button-group">
+            <button type="submit" class="btn btn-submit">Register</button>
+            <button
+            type="button"
+            (click)="onReset()"
+            class="btn btn-danger float-right mx-3"
+            >
+            Reset
+            </button>
+        </div>
+        </form>
+      </div>
+    </div>
+
+    <hr class="my-3">
+
+    
+    <div class="row justify-content-center">
+        <div class="col-8">
+      <form>
+    
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="mb-3">
+                <label for="inputname" class="control-label col-form-label">First Name</label>
+                <input type="text" class="form-control" id="inputname" placeholder="First Name Here"/>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="mb-3">
+                <label for="inputlname" class="control-label col-form-label"
+                  >Last Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputlname"
+                  placeholder="Last Name Here"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="mb-3">
+                <label for="inputEmail3" class="control-label col-form-label"
+                  >Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control"
+                  id="inputEmail3"
+                  placeholder="Email Here"
+                />
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="mb-3">
+                <label for="inputcontact" class="control-label col-form-label"
+                  >Contact No</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputcontact"
+                  placeholder="Contact Here"
+                />
+              </div>
+            </div>
+          </div>
+ 
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3">
+                <label for="inputcom" class="control-label col-form-label"
+                  >Company</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="inputcom"
+                  placeholder="Company Here"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <div class="mb-3">
+                <label class="control-label col-form-label"
+                  >Interested In</label
+                >
+                <select class="form-select">
+                  <option>Choose Your Option</option>
+                  <option>Desiging</option>
+                  <option>Development</option>
+                  <option>Videography</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div class="mb-3">
+                <label class="control-label col-form-label">Budget</label>
+                <select class="form-select">
+                  <option>Choose Your Option</option>
+                  <option>Less then $5000</option>
+                  <option>$5000 - $10000</option>
+                  <option>$10000 - $20000</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <div class="mb-3">
+                <label class="control-label col-form-label">Select File</label>
+                <div class="input-group">
+                  <span class="input-group-text">Upload</span>
+                  <input
+                    type="file"
+                    class="form-control"
+                    id="inputGroupFile01"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="mb-3">
+                <label class="control-label col-form-label"
+                  >About Project</label
+                >
+                <textarea
+                  class="form-control"
+                  aria-label="With textarea"
+                  placeholder="About Project Here"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+
+      </form>
+     </div>
+    </div>
+
+
+    <hr class="gradient-line">
+
+    <app-table></app-table>
+
+    </ng-scrollbar>
+</section>
+  
+
+  <!-- <app-table></app-table> -->

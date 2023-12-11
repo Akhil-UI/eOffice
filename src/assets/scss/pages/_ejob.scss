@@ -1,0 +1,41 @@
+
+.ejob-section{
+  background-color: #ffffff;
+  height: 100%;
+  padding: 0.5rem;
+  height: 87vh;
+
+    .form-section{
+      margin: 5px;
+      background-color: #F1F5F9;
+      padding: 1rem 2rem;
+      border-radius: 0.25rem;
+
+      .form-title{
+        font-size: 1.6rem;
+      }
+
+      .input-block{
+        background-color: #ffffff;
+        padding: 1rem;
+      }
+      .form-control,.form-select{
+        border-radius: 0;
+        border-color: $border-color;
+        font-size: 0.9rem;
+        color:#212529;
+      }
+      .input-group-text{
+        border-radius: 0;
+        background-color: #5ABA8A;
+        color: #ffffff;
+        border-color: #5ABA8A;
+
+        .icon{
+          fill:#ffffff;
+        }
+      }
+    }
+
+ 
+}

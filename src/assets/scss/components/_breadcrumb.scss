@@ -1,0 +1,28 @@
+/* breadcrumb Styles */
+
+.page-breadcrumb {
+  padding-left: 0px;
+  padding-right: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+  border-radius: 0.25rem;
+  min-height: 45px;
+  color: #6F7A85;
+
+  h5{
+    font-size: 14px;
+  }
+  .breadcrumb{
+    margin-bottom: 0;
+    font-size: 12px;
+
+    .active-span{
+      background-color: #ECF6FF;
+      padding: 1px 6px;
+      border-radius: 0.25rem;
+      display: inline-block;
+    }
+  }
+  
+}

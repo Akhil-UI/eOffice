@@ -1,0 +1,93 @@
+
+
+<section class="ejob-section" >
+	<ng-scrollbar class="w-100 h-100">
+
+   
+          <form class="row g-3 datasearch justify-content-center" [formGroup]="form" (ngSubmit)="onSubmit()">
+          <div class="col-md-3 ">
+              <label class="mb-1">Privilege Name</label>
+              <input
+              type="text"
+              formControlName="privilegeName"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['privilegeName'].errors }"
+              />
+              <div *ngIf="submitted && f['privilegeName'].errors" class="invalid-feedback">
+              <div *ngIf="f['privilegeName'].errors['required']">
+                Privilege Name is required
+              </div>
+              </div>
+          </div>
+      
+          <div class="col-md-3">
+              <label class="mb-1">Privilege Name in Arabic</label>
+              <input
+              type="text"
+              formControlName="privilegeAribic"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['privilegeAribic'].errors }"
+              />
+              <div *ngIf="submitted && f['privilegeAribic'].errors" class="invalid-feedback">
+              <div *ngIf="f['privilegeAribic'].errors['required']">
+                Privilege Name in Arabic is required
+              </div>
+              </div>
+          </div>
+      
+
+          <div class="row btn-row justify-content-center">
+            <div class="d-flex justify-content-center">
+              <button type="submit" class="btn btn-submit mx-2">Submit</button>
+              <!-- <button type="button" class="btn btn-update">Update</button> -->
+              <button type="button" class="btn btn-danger mx-2" (click)="onReset()">Reset</button>
+            </div>
+          </div>
+       
+           
+  
+          </form>
+    
+  
+          <hr class="gradient-line">
+
+    <div class="row m-0 p-0 data">
+      <div class="table-result p-0 ">
+          <ng-scrollbar class="table-height" style="height: 59vh;">
+          <ngx-table [configuration]="configuration" [data]="data" [columns]="columns" > 
+              <ng-template let-row let-index="index">
+
+                <td>
+                  <span class="">{{ row.sno }}</span>
+                </td>
+                <td>
+                  <div class="">{{ row.PrivilegeName }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.PrivilegeNameAr }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.status }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.createdBy }}</div>
+                </td>
+                <td>
+                  <div class="">{{ row.createdBy }}</div>
+                </td>
+                
+              </ng-template>
+            </ngx-table>
+          </ng-scrollbar>
+       
+    
+      </div>
+    </div>
+    
+
+
+    </ng-scrollbar>
+</section>
+  
+
+  <!-- <app-table></app-table> -->

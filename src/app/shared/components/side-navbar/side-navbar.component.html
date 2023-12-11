@@ -1,0 +1,73 @@
+
+<div class="side-navbar">
+    <ul class="menu-nav d-flex flex-column align-items-center flex-nowrap">
+        <!-- <ng-scrollbar class="w-100"> -->
+
+        <li (click)="setActiveMenuItem('Home')"class="nav-item" [class.selected]="showMenu === sidebarnavItem.title" *ngFor="let sidebarnavItem of sidebarnavItems; let i = index;" (click)="sidebarnavItem.submenu.length != 0 ? '' : handleNotify(); setActiveMenuItem(sidebarnavItem.title)"  >
+            <div class="nav-small-cap" *ngIf="sidebarnavItem.extralink === true"></div>
+            <a class="nav-link main-navitem" [routerLink]="sidebarnavItem.class === '' ? [sidebarnavItem.path] : null"
+              [ngClass]="[sidebarnavItem.class]" *ngIf="!sidebarnavItem.extralink;"
+              [attr.aria-expanded]="expandedIndex === i ? 'true' : 'false'" (click)="toggleExpand(i)"
+              (click)="addExpandClass(sidebarnavItem.title)"
+              [routerLinkActive]="sidebarnavItem.submenu.length != 0 ? '' : 'active'">
+              <div class="main-navlink">
+                <svg class="icon"><use [attr.xlink:href]="[sidebarnavItem.icon]"/></svg>
+                <span class="hide-menu">{{sidebarnavItem.title | translate}}</span>
+              </div>
+              
+            </a>
+                <!-- Second level menu -->
+          <ul [attr.aria-expanded]="!isCollapsed" class="collapse first-level" *ngIf="sidebarnavItem.submenu.length > 0"
+            [ngClass]="{'in' : showMenu === sidebarnavItem.title }">
+            <li class="nav-item " *ngFor="let sidebarnavSubItem of sidebarnavItem.submenu"
+            (click)="sidebarnavSubItem.submenu.length != 0 ? '' : handleNotify(); setActiveMenuItem(sidebarnavSubItem.title)"
+                [class.active]="showSubMenu === sidebarnavSubItem.title">
+                <a class="nav-link"
+                    [routerLink]="sidebarnavSubItem.submenu.length > 0 ? null : [sidebarnavSubItem.path]"
+                    [routerLinkActive]="sidebarnavSubItem.submenu.length > 0 ? '' : 'router-link-active'"
+                    [ngClass]="[sidebarnavSubItem.class]" *ngIf="!sidebarnavSubItem.extralink;"
+                  
+                    (click)="addActiveClass(sidebarnavSubItem.title)" >
+                    <!-- <svg class="icon"><use [attr.xlink:href]="[sidebarnavSubItem.icon]"/></svg> -->
+                    <span class="first-subIcon"></span>
+                    <span class="hide-menu">{{sidebarnavSubItem.title | translate}}</span>
+                </a>
+                <!-- Third level menu -->
+                <ul class="collapse Second-level" *ngIf="sidebarnavSubItem.submenu.length > 0"
+                    [ngClass]="{'in' : showSubMenu === sidebarnavSubItem.title }">
+                    <li class="nav-item" *ngFor="let sidebarnavSubsubItem of sidebarnavSubItem.submenu">
+                        <a class="nav-link" [routerLink]="[sidebarnavSubsubItem.path]"
+                            *ngIf="!sidebarnavSubsubItem.extralink;"
+                            [routerLinkActive]="sidebarnavSubsubItem.submenu.length > 0 ? '' : 'router-link-active'">
+                            <!-- <svg class="icon"><use [attr.xlink:href]="[sidebarnavSubsubItem.icon]"/></svg> -->
+                            <span class="second-subIcon"></span>
+                            <span class="hide-menu">{{sidebarnavSubsubItem.title | translate}}</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+
+           
+        </li>
+    <!-- </ng-scrollbar> -->
+    </ul>
+    
+     
+    <div class="d-flex w-100 fixed-navbottom align-items-center">
+        <div class="border-right">
+            <svg class="icon support"><use xlink:href="#support"/></svg>
+        </div>
+        <div class="ms-2">
+            
+            <address class="my-1">
+                <a href="tel:+90 902-25522-251">+90 902-25522-251</a>
+                <a href="mailto:eoffice@somemail.com">eoffice@somemail.com</a>
+            </address>
+        </div>
+    </div>
+   
+
+
+
+</div>

@@ -1,0 +1,539 @@
+
+<section class="ejob-section" >
+
+	<ng-scrollbar class="w-100 h-100">
+
+    <form class="row  datasearch justify-content-center" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="col-lg-5">
+          <div class="mb-3 ">
+              <label class="mb-1" for="name">Name  </label>
+              <input
+              type="text"
+              formControlName="name"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': (submitted || f['name'].dirty || f['name'].touched ) && f['name'].errors  }"/>
+              <div *ngIf="(submitted || f['name'].dirty || f['name'].touched) && f['name'].errors" class="invalid-feedback">
+              <div *ngIf="f['name'].errors['required']">
+                Org Name is required
+              </div>
+              </div>
+
+              <span>Touched : {{ f['name'].touched}}</span><br>
+              <span>Dirty : {{ f['name'].dirty}}</span><br>
+              <span>Pristine : {{ f['name'].pristine}}</span><br>
+              <span>Status : {{ f['name'].status}}</span>
+          </div>
+
+
+          <div class="mb-3">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              formControlName="username"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['username'].errors }"
+            />
+            <div *ngIf="submitted && f['username'].errors" class="invalid-feedback">
+              <div *ngIf="f['username'].errors['required']">
+                Username is required
+              </div>
+              <div *ngIf="f['username'].errors['minlength']">
+                Username must be at least 6 characters
+              </div>
+              <div *ngIf="f['username'].errors['maxlength']">
+                Username must not exceed 20 characters
+              </div>
+            </div>
+          </div>
+    
+
+          <div class="mb-3">
+            <label for="email">Email</label>
+            <input
+              type="text"
+              formControlName="email"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['email'].errors }"
+            />
+            <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+              <div *ngIf="f['email'].errors['required']">Email is required</div>
+              <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              formControlName="password"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"
+            />
+            <div *ngIf="submitted && f['password'].errors" class="invalid-feedback">
+              <div *ngIf="f['password'].errors['required']">
+                Password is required
+              </div>
+              <div *ngIf="f['password'].errors['minlength']">
+                Password must be at least 6 characters
+              </div>
+              <div *ngIf="f['password'].errors['maxlength']">
+                Username must not exceed 40 characters
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirmPassword">Confirm Password</label>
+            <input
+              type="password"
+              formControlName="confirmPassword"
+              class="form-control"
+              [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }"
+            />
+            <div
+              *ngIf="submitted && f['confirmPassword'].errors"
+              class="invalid-feedback"
+            >
+              <div *ngIf="f['confirmPassword'].errors['required']">
+                Confirm Password is required
+              </div>
+              <div *ngIf="f['confirmPassword'].errors['matching']">
+                Confirm Password does not match
+              </div>
+            </div>
+          </div>
+
+
+          <div class="mb-3 ng-select">
+            <label class="mb-1" for="singleSelect">Single Select</label>
+              <ng-select [clearOnBackspace]="true" [clearable]="false"  [(ngModel)]="singleSelect" formControlName="singleSelect" placeholder="Single Select" [ngClass]="{ 'is-invalid': submitted && f['single'].errors }">
+                <ng-option *ngFor="let single of single" [value]="single.id">{{
+                  single.name
+                }}</ng-option>
+              </ng-select>
+  
+              <div >
+                Selected Parent: {{selectedOrg?.name}}
+            </div>
+            </div>
+
+            <div class="mb-3 ng-select">
+            <label class="mb-1" for="multiSelect">Multi Select</label>
+            <ng-select [multiple]="true" [(ngModel)]="multiSelect" formControlName="multiSelect"  placeholder="Multi Select" 
+            clearAllText="Clear" [ngClass]="{ 'is-invalid': submitted && f['multi'].errors }">
+              <ng-option *ngFor="let multi of multi" [value]="multi.id">{{
+                multi.name
+              }}</ng-option>
+            </ng-select>
+            <div *ngIf="submitted && f['multi'].errors" class="invalid-feedback">
+              <div *ngIf="f['multi'].errors['required']">
+               Single select is required
+              </div>
+              </div>
+          </div>
+
+          <div class="mb-3 ">
+            
+     
+            <div class="col-4">
+              <label class="mb-1" for="folderSelect">Folder</label>
+              <select class="form-select" formControlName="folderSelect" (change)="onFolderChange()">
+                <option [ngValue]="null" selected>Select The Folder</option>
+                <option [value]="'1'">One</option>
+                <option [value]="'2'">Two</option>
+              </select>
+            </div>
+            
+            <div *ngIf="selectedFolder === '1'">
+              <p>Content for Folder One 1</p>
+            </div>
+            
+            <div *ngIf="selectedFolder === '2'">
+              <p>Content for Folder Two 2</p>
+            </div>
+            
+        </div>
+
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              formControlName="acceptTerms"
+              class="form-check-input"
+              [ngClass]="{ 'is-invalid': submitted && f['acceptTerms'].errors }"
+            />
+            <label for="acceptTerms" class="form-check-label"
+              >I have read and agree to the Terms</label
+            >
+            <div
+              *ngIf="submitted && f['acceptTerms'].errors"
+              class="invalid-feedback"
+            >
+              Accept Terms is required
+            </div>
+          </div>
+
+          
+
+
+          <div class="row btn-row justify-content-center">
+            <div class="d-flex justify-content-center">
+              <!-- <button type="submit" class="btn-submit mx-2" >Submit</button> -->
+              <button type="submit" class="btn-submit mx-2" [disabled]="form.invalid">Submit</button>
+              <button type="button" class="btn-reset mx-2" (click)="onReset()">Reset</button>
+             
+            </div>
+          </div>
+          </div>
+         
+       
+           
+  
+          </form>
+
+
+          
+    
+    <hr class="gradient-line">
+
+ 
+    <div class="row btn-row justify-content-center my-5">
+      <div class="d-flex justify-content-center">
+        <button type="submit" class="btn-submit mx-2" [disabled]="form.invalid">Submit</button>
+        <button type="button" class="btn-reset mx-2" (click)="onReset()">Reset</button>
+        <button type="button" class="btn-save mx-2 " >Save</button>
+        <button type="button" class="btn-update mx-2 " disabled>Update</button>
+        <button type="button" class="btn-edit mx-2 " >Edit</button>
+      </div>
+    </div>
+
+    <hr class="gradient-line">
+
+    <div class="row flex px-5 my-5">
+
+      <div class=" col-md-3 flex justify-content-center mx-3 rounded-0">
+        <p-tree class="w-full md:w-30rem" [value]="files"></p-tree>
+      </div>
+  
+      <div class="col-md-3 selecttree">
+        <form class="align-items-center " [formGroup]="formTree">
+            <p-treeSelect class="form-control py-0"  pStyleClass="custom-class" containerStyleClass="w-full" formControlName="selectedNodes" [options]="nodes" placeholder="Select Item"></p-treeSelect>
+        </form>
+      </div>
+    </div>
+
+    <hr class="gradient-line">
+
+      <!-- Default Modal -->
+      <ng-template #modalBasic let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+          <button
+            type="button"
+            class="btn-close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="dateOfBirth">Date of birth</label>
+              <div class="input-group">
+                <input
+                  id="dateOfBirth"
+                  class="form-control"
+                  placeholder="yyyy-mm-dd"
+                  name="dp"
+                  ngbDatepicker
+                  #dp="ngbDatepicker"
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  (click)="dp.toggle()"
+                  type="button"
+                >
+                  <i-feather name="calendar" class="feather-sm"></i-feather>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-outline-dark"
+            (click)="modal.close('Save click')"
+          >
+            Save
+          </button>
+        </div>
+      </ng-template>
+
+      
+      <!--  Vertically Center Modal -->
+      <ng-template #modalCenter let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">
+            Vertically Center Modal
+          </h4>
+          <button
+            type="button"
+            class="btn text-danger close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          >
+            <i-feather name="x"></i-feather>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            fugiat excepturi exercitationem atque aperiam quas quisquam harum,
+            accusamus molestias corporis repellendus, accusantium perferendis,
+            reiciendis nemo dolore distinctio a expedita ducimus.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="modal.close('Save click')"
+          >
+            Accept
+          </button>
+        </div>
+      </ng-template>
+
+      <!-- Disabled Backdrop Modal -->
+      <ng-template #modalBackdrop let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">
+            Disabled Backdrop Modal
+          </h4>
+          <button
+            type="button"
+            class="btn text-danger close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          >
+            <i-feather name="x"></i-feather>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            fugiat excepturi exercitationem atque aperiam quas quisquam harum,
+            accusamus molestias corporis repellendus, accusantium perferendis,
+            reiciendis nemo dolore distinctio a expedita ducimus.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="modal.close('Save click')"
+          >
+            Accept
+          </button>
+        </div>
+      </ng-template>
+
+       <!-- Small Modal -->
+      <ng-template #modalSmall let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Small Modal</h4>
+          <button
+            type="button"
+            class="btn text-danger close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          >
+            <i-feather name="x"></i-feather>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            fugiat excepturi exercitationem atque aperiam quas quisquam harum,
+            accusamus molestias corporis repellendus, accusantium perferendis,
+            reiciendis nemo dolore distinctio a expedita ducimus.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="modal.close('Save click')"
+          >
+            Accept
+          </button>
+        </div>
+      </ng-template>
+
+
+      <!-- Medium Modal -->
+      <ng-template #modalMedium let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Medium Modal</h4>
+          <button
+            type="button"
+            class="btn text-danger close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          >
+            <i-feather name="x"></i-feather>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            fugiat excepturi exercitationem atque aperiam quas quisquam harum,
+            accusamus molestias corporis repellendus, accusantium perferendis,
+            reiciendis nemo dolore distinctio a expedita ducimus.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="modal.close('Save click')"
+          >
+            Accept
+          </button>
+        </div>
+      </ng-template>
+
+      <!-- Large Modal -->
+      <ng-template #modalLarge let-modal>
+        <div class="modal-header">
+          <h4 class="modal-title" id="modal-basic-title">Large Modal</h4>
+          <button
+            type="button"
+            class="btn text-danger close"
+            aria-label="Close"
+            (click)="modal.dismiss('Cross click')"
+          >
+            <i-feather name="x"></i-feather>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
+            fugiat excepturi exercitationem atque aperiam quas quisquam harum,
+            accusamus molestias corporis repellendus, accusantium perferendis,
+            reiciendis nemo dolore distinctio a expedita ducimus.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="modal.close('Save click')"
+          >
+            Accept
+          </button>
+        </div>
+      </ng-template>
+
+
+      <div class="button-group d-flex justify-content-around  my-5">
+        <!-- Defaullt Modal -->
+        <button
+        class="btn-modal"
+          (click)="modalOpen(modalBasic)"
+        >
+          Basic Modal
+        </button>
+        <!-- Vertical Center -->
+        <button
+          class="btn-modal"
+          (click)="modalOpenVC(modalCenter)"
+        >
+          Vertically Center Modal
+        </button>
+        <!-- Disabled Backdrop Modal -->
+        <button
+          class="btn-modal"
+          (click)="modalOpenBackdrop(modalBackdrop)"
+        >
+          Disabled Backdrop Modal
+        </button>
+
+        <!-- Small Modal -->
+        <button
+            class="btn-modal"
+            (click)="modalOpensm(modalSmall)"
+          >
+            Small Modal
+          </button>
+
+          <!-- Medium Modal -->
+          <button
+            class="btn-modal"
+            (click)="modalOpenmd(modalMedium)"
+          >
+            Medium Modal
+          </button>
+          <!-- Large Modal -->
+          <button
+          class="btn-modal"
+            (click)="modalOpenlg(modalLarge)"
+          >
+            Large Modal
+          </button>
+      </div>
+
+      <hr class="gradient-line">
+
+      <div class="row d-flex justify-content-center my-5">
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Toastr Success</h4>
+                    <h6 class="card-subtitle">This is the simpel toastr with success message</h6>
+                    <button class="btn-success mt-2" (click)="showSuccess()">Toastr Success</button>
+                </div>
+            </div>
+        </div> 
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Toastr Danger</h4>
+                    <h6 class="card-subtitle">This is the simpel toastr with Danger message</h6>
+                    <button class="btn-danger mt-2"  (click)="showError()">Toastr Danger Error</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Toastr Warning</h4>
+                    <h6 class="card-subtitle">This is the simpel toastr with Warning message</h6>
+                    <button class="btn-warning mt-2" (click)="showWarning()">Toastr Warning</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Toastr Info</h4>
+                    <h6 class="card-subtitle">This is the simpel toastr with Info message</h6>
+                    <button class="btn-info mt-2" (click)="showInfo()">Toastr Info</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div style="height:500px;"></div>
+
+    </ng-scrollbar>
+
+    
+    
+
+</section>
+
+
+  
