@@ -259,13 +259,16 @@ export class WidgetComponent implements OnInit{
   
   showSuccess() {
    
-    this.toastr.success('You are awesome!', 'Success! dfdf', {
+    this.toastr.success('You are awesome!', 'Success!', {
       disableTimeOut: true,
+      positionClass: 'toast-top-full-width'
     });
   }
 
   showError() {
-    this.toastr.error('This is not good!', 'Oops!');
+    this.toastr.error('This is not good!', 'Oops!', {
+      positionClass: 'toast-top-center'
+    });
   }
 
   showWarning() {
